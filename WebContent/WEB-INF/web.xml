@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>comp3095Assignment1</display-name>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <session-config>
+  	<session-timeout>30</session-timeout>
+  </session-config>
+  
+  <!-- Remove this filter-mapping to view other pages without logging in -->
+  <filter-mapping>
+  	<filter-name>sessionFilter</filter-name>
+  	<url-pattern>/dashboard.jsp</url-pattern>
+  	<url-pattern>/futureEnhancement.jsp</url-pattern>
+  	<url-pattern>/navigation.jsp</url-pattern>
+  </filter-mapping>
+  
+  <resource-ref>
+      <description>Database Connection</description>
+      <res-ref-name>jdbc/COMP3095</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+      <res-sharing-scope>Shareable</res-sharing-scope>
+  </resource-ref>
+</web-app>
