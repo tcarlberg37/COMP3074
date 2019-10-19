@@ -1,1 +1,1 @@
-# COMP3074
+# COMP3074 Assignment
