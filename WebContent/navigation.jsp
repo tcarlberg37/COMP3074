@@ -17,7 +17,7 @@
 		<div style="float: right;">
 			Welcome, ${user.firstName}!
 			<form action="Logout" method="post">
-				<input type="button" name="logout" value="Logout" />
+				<input type="submit" name="logout" value="Logout" />
 			</form>
 		</div>
 	</div>

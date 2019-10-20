@@ -33,6 +33,9 @@ public class User {
 		this.password = password;
 		this.role = role;
 	}
+    public String toString() {
+    	return "| email: " + email + " | firstName: " + firstName + " | lastName: " + lastName;
+    }
 	public String getFirstName() {
         return firstName;
     }

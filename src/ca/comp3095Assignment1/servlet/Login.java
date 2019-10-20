@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
+		String username = request.getParameter("email");
 		String password = request.getParameter("password");
 		getServletContext().getRequestDispatcher("/Authentication").include(request, response);
 	}

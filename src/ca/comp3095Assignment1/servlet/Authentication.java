@@ -10,6 +10,9 @@
 package ca.comp3095Assignment1.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ca.comp3095Assignment1.beans.User;
+import ca.comp3095Assignment1.beans.UserList;
 import utilities.DatabaseAccess;
 
 @WebServlet("/Authentication")
@@ -33,7 +37,22 @@ public class Authentication extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = DatabaseAccess.getUser(request);
+		// User user = DatabaseAccess.getUser(request);
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		User user = UserList.authenticate(email, password);
+		if (user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			session.setMaxInactiveInterval(-1); // session ends when browser is closed
+	        // request.setAttribute("user", u);
+	        log("User session: " + session.getAttribute("user").toString());
+	        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+		}
+		request.setAttribute("message", "Invalid Credentials Provided");
+		request.getRequestDispatcher("login.jsp").include(request, response);
+		
+		/*
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
@@ -45,6 +64,7 @@ public class Authentication extends HttpServlet {
 			request.setAttribute("message", "Invalid Credentials Provided");
 			request.getRequestDispatcher("login.jsp").include(request, response);
 		}
+		*/
 	}
 
 }
