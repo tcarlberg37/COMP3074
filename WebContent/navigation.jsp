@@ -5,10 +5,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>COMP3095 Assignment 1</title>
+<style>
+	li {
+		margin: 0 1em;
+		text-decoration: none;
+	}
+</style>
 </head>
 <body>
 	<div style="display: flex; flex-direction: row; justify-content: space-between;">
-		<ul style="display: flex; flex-direction: row; text-decoration: none;">
+		<ul style="display: flex; flex-direction: row;">
 			<li><a href="futureEnhancement.jsp">Tab 1</a></li>
 			<li><a href="futureEnhancement.jsp">Tab 2</a></li>
 			<li><a href="futureEnhancement.jsp">Tab 3</a></li>

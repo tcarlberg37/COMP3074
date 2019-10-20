@@ -45,26 +45,11 @@ public class Authentication extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 			session.setMaxInactiveInterval(-1); // session ends when browser is closed
-	        // request.setAttribute("user", u);
 	        log("User session: " + session.getAttribute("user").toString());
 	        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 		}
 		request.setAttribute("message", "Invalid Credentials Provided");
 		request.getRequestDispatcher("login.jsp").include(request, response);
-		
-		/*
-		if (user != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			session.setMaxInactiveInterval(-1); // session ends when browser is closed
-            request.setAttribute("user", user);
-            request.getRequestDispatcher("dashboard.jsp").forward(request, response);
-		}
-		else {
-			request.setAttribute("message", "Invalid Credentials Provided");
-			request.getRequestDispatcher("login.jsp").include(request, response);
-		}
-		*/
 	}
 
 }

@@ -67,7 +67,6 @@ public class Register extends HttpServlet {
 			// [a-zA-z]+ is a regex that checks that first and last name are only alphabetical
 			if (firstName.matches("[a-zA-z]+") && lastName.matches("[a-zA-z]+")) { 
 				if (password.length() >= 6 && password.length() <= 12 && password.equals(confirm)){ //&& password.matches("(?=.*[A-Z])(?=.*[!@#$%&*?])")) {
-					// regex (?=.*[characters]) == one or more of [characters]
 					UserList.addUser(firstName, lastName, email, address, password);
 					
 					// send an email to the new user once registered
@@ -80,7 +79,7 @@ public class Register extends HttpServlet {
 						message.setSubject("You have registered on the COMP3095 Assignment 1 Page!");
 						message.setText("Dear " + firstName + " " + lastName + ",\n You are receiving this email because you have successfully"
 								+ " registered an account with your email " + email
-								+ ". Please click <a href='http://localhost:8081/comp3095Assignment1/'>here</a> to login."
+								+ "\nPlease click <a href='http://localhost:8081/comp3095Assignment1/'>here</a> to login."
 								+ "Best Regards,\nThe Brogrammers");
 						Transport.send(message);
 					} catch (Exception e) {

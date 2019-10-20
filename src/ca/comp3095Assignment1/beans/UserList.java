@@ -1,3 +1,12 @@
+/*********************************************************************************
+* Project: comp3095Assignment1
+* Assignment: 1
+* Authors: Thomas Carlberg, Kevin Di Fonzo, Nga Le, Joel Abramson
+* Student Numbers: 101155271, 101152163, 101102629, 101165088
+* Date: October 20, 2019
+* Description: This file contains the UserList class which we are using an ArrayList to hold registered users
+* in place of the database while the database connectivity is not working due to a seemingly unsolvable UnsatisfiedLinkError
+*********************************************************************************/
 package ca.comp3095Assignment1.beans;
 
 import java.util.ArrayList;
@@ -17,7 +26,7 @@ public class UserList {
 	
 	public static User authenticate(String email, String password) {
 		for (User u : users) { 
-			// log(u.toString());
+			// log(u.toString()); // why does log work in some files and not others? log only allowed in servlets?
 			if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
 				return u;
 			}
