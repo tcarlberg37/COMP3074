@@ -7,7 +7,8 @@ import javax.servlet.http.HttpSession;
 
 //non-database super simple terrible practice way of doing authentication
 public class UserList {
-	public static List<User> users = new ArrayList<User>();
+	public static User adminUser = new User("Admin", "", "admin@isp.net", "", "P@ssword1", "admin");
+	public static List<User> users = new ArrayList<User>(){{add(adminUser);}};
 
 	public UserList() {
 		User adminUser = new User("Admin", "", "admin@isp.net", "", "P@ssword1", "admin");
